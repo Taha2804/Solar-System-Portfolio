@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Space Grotesk', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
+  --font-sans: 'Inter', -apple-system, sans-serif;
+  --color-cosmic: #02040a;
+  --color-cyan-glow: rgba(0, 229, 255, 0.6);
+  --color-amber-glow: rgba(255, 176, 32, 0.6);
+}
+
+/* Custom Scrollbar for Dossier Modal */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(3, 7, 18, 0.7);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 229, 255, 0.4);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 229, 255, 0.8);
+}
+
+/* Cosmic Glassmorphism */
+.cosmic-glass {
+  background: rgba(8, 14, 28, 0.82);
+  backdrop-filter: blur(28px) saturate(200%);
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  border: 1px solid rgba(0, 229, 255, 0.22);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.cosmic-glass-pill {
+  background: rgba(12, 19, 36, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.cosmic-glass-card {
+  background: rgba(10, 16, 32, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Scanline overlay */
+.scanlines {
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0),
+    rgba(255,255,255,0) 50%,
+    rgba(0, 0, 0, 0.25) 50%,
+    rgba(0, 0, 0, 0.25)
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+}
+
+/* HUD Cockpit Glitch / Visor */
+.cockpit-hud {
+  background: radial-gradient(circle at center, transparent 30%, rgba(1, 4, 14, 0.94) 100%);
+  box-shadow: inset 0 0 130px rgba(0, 229, 255, 0.35);
+}
+
+/* Celestial Rings */
+.saturn-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 250%;
+  height: 60%;
+  transform: translate(-50%, -50%) rotate(-25deg);
+  border: 2px solid rgba(251, 191, 36, 0.8);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(251, 191, 36, 0.6), inset 0 0 6px rgba(251, 191, 36, 0.4);
+  pointer-events: none;
+}
+.uranus-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 220%;
+  height: 55%;
+  transform: translate(-50%, -50%) rotate(40deg);
+  border: 1.5px solid rgba(244, 114, 182, 0.85);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(244, 114, 182, 0.6);
+  pointer-events: none;
+}
+.earth-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 190%;
+  height: 50%;
+  transform: translate(-50%, -50%) rotate(-15deg);
+  border: 1px dashed rgba(52, 211, 153, 0.6);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Planet interactive node styling */
+.planet-btn-node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 40;
+  transition: transform 0.15s ease-out, filter 0.2s ease;
+  touch-action: manipulation;
+}
+.planet-btn-node:hover {
+  z-index: 55;
+}
+.planet-btn-node:hover .planet-sphere {
+  transform: scale(1.25);
+  filter: brightness(1.25);
+}
+.planet-btn-node:hover .planet-label-card {
+  opacity: 1;
+  transform: translateY(0) scale(1.05);
+  border-color: rgba(0, 229, 255, 0.8);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
+}
+.planet-sphere {
+  transition: transform 0.2s ease, filter 0.2s ease;
+  position: relative;
+}
+.planet-label-card {
+  transition: all 0.2s ease;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
